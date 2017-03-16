@@ -6,21 +6,27 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      names: ['pete', 'jeff', 'ben', 'david', 'kirsten', 'jacky'],
+      names: [1, 2, 3, 4, 5, 6],
       page: 1
     }
   }
 
   renderNames(names) {
-    return names.map(name => {
+    const pagination = {
+      1: {min: 0, max: 3},
+      2: {min: 3, max: 6}
+    }
+    const page = pagination[this.state.page]
+    const show = names.slice(page.min, page.max)
+    return show.map(name => {
       return (
-        <h1>{name}</h1>
+        <h1 key={name}>{name}</h1>
       )
     })
   }
 
   setPage(e) {
-    this.setState({page: e.target.innerText})
+    this.setState({page: parseInt(e.target.innerText)})
   }
 
   render() {
@@ -31,7 +37,8 @@ class App extends Component {
           <h2>Welcome to Basic Pagination</h2>
         </div>
         {this.renderNames(this.state.names)}
-        <button onClick={(e) => this.setPage(e)}>1</button><button onClick={(e) => this.setPage(e)}>2</button>
+        <button onClick={(e) => this.setPage(e, this.state.page)}>1</button>
+        <button onClick={(e) => this.setPage(e, this.state.page)}>2</button>
       </div>
     );
   }
