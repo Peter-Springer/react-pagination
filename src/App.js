@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   setPage(e) {
-    this.setState({page: parseInt(e.target.innerText)})
+    this.setState({page: parseInt(e.target.innerText, 10)})
   }
 
   render() {
