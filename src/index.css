@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
 }
 
-button:active {
+.active {
   background-color: yellow;
+}
+
+.disabled {
+  background-color: none;
 }

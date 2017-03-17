@@ -37,8 +37,16 @@ class App extends Component {
           <h2>Welcome to Basic Pagination</h2>
         </div>
         {this.renderNames(this.state.nums)}
-        <button onClick={(e) => this.setPage(e)}>1</button>
-        <button onClick={(e) => this.setPage(e)}>2</button>
+        <button
+          className={this.state.page === 1 ? 'active' : 'disabled'}
+          onClick={(e) => this.setPage(e)}>
+          1
+        </button>
+        <button
+          className={this.state.page === 2 ? 'active' : 'disabled'}
+          onClick={(e) => this.setPage(e)}>
+          2
+        </button>
       </div>
     );
   }
